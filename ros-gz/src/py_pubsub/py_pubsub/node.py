@@ -4,21 +4,46 @@ from rclpy.node import Node
 from std_msgs.msg import String
 
 
-class MinimalPublisher(Node):
+class SeeKeys(Node):
+
 
     def __init__(self):
-        super().__init__('minimal_publisher')
-        self.publisher_ = self.create_publisher(String, 'topic', 10)
-        timer_period = 0.5  # seconds
-        self.timer = self.create_timer(timer_period, self.timer_callback)
-        self.i = 0
+    
+        super().__init__('see_keys')
+        turn = 0
+        drive = 0
+        self.publisher_ = self.create_publisher(Twist, '/cmd_vml', 10)
+        timer_period = 0.1  # seconds
+        self.timer = self.create_timer(timer_period, self.action)
 
-    def timer_callback(self):
-        msg = String()
-        msg.data = 'Hello World: %d' % self.i
+
+        self.subscription = self.create_subscription(Int32, '/keyboard/keypress', key_pressed, 10)
+
+    def key_pressed(self, message):
+        match message.data:
+            case 87:
+                drive = 1
+            case 65:
+                turn = 1
+            case 68:
+                turn = -1
+            case 83:
+                drive = -1
+            
+
+                
+    def action(self):
+        
+        msg = Twist()
+        msg.linear.x = drive
+        msg.angular.z = turn
         self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%s"' % msg.data)
-        self.i += 1
+        turn = 0
+        drive = 0
+
+
+
+
 
 
 def main(args=None):
