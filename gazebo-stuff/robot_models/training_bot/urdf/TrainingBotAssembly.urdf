@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Training_Bot">
+  <link
+    name="Chassis">
+    <inertial>
+      <origin
+        xyz="0.14828 0.045056 0.10159"
+        rpy="0 0 0" />
+      <mass
+        value="0.62268" />
+      <inertia
+        ixx="0.0017939"
+        ixy="9.1059E-19"
+        ixz="1.178E-07"
+        iyy="0.0056769"
+        iyz="-4.6016E-19"
+        izz="0.0042423" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/Chassis.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/Chassis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="FrontLeftWheel">
+    <inertial>
+      <origin
+        xyz="1.0392E-11 1.8001E-11 -0.0225"
+        rpy="0 0 0" />
+      <mass
+        value="0.40219" />
+      <inertia
+        ixx="0.00037735"
+        ixy="2.8962E-36"
+        ixz="-3.5293E-23"
+        iyy="0.00037735"
+        iyz="-4.2244E-36"
+        izz="0.00063124" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/FrontLeftWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/FrontLeftWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FrontLeft"
+    type="continuous">
+    <origin
+      xyz="0.25963 0.0065065 0.023675"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="FrontLeftWheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="FrontRightWheel">
+    <inertial>
+      <origin
+        xyz="1.0392E-11 1.8E-11 0.0225"
+        rpy="0 0 0" />
+      <mass
+        value="0.40219" />
+      <inertia
+        ixx="0.00037735"
+        ixy="2.5298E-36"
+        ixz="1.806E-36"
+        iyy="0.00037735"
+        iyz="-1.7591E-36"
+        izz="0.00063124" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/FrontRightWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/FrontRightWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FrontRight"
+    type="continuous">
+    <origin
+      xyz="0.25963 -0.20923 0.023675"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="FrontRightWheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="BackLeftWheel">
+    <inertial>
+      <origin
+        xyz="-1.5266E-16 7.8063E-16 -0.0225"
+        rpy="0 0 0" />
+      <mass
+        value="0.40219" />
+      <inertia
+        ixx="0.00037735"
+        ixy="2.5298E-36"
+        ixz="-3.5293E-23"
+        iyy="0.00037735"
+        iyz="-1.7591E-36"
+        izz="0.00063124" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/BackLeftWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/BackLeftWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BackLeft"
+    type="continuous">
+    <origin
+      xyz="0.04517 0.0064628 0.023675"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="BackLeftWheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="BackRightWheel">
+    <inertial>
+      <origin
+        xyz="1.0392E-11 1.8E-11 0.0225"
+        rpy="0 0 0" />
+      <mass
+        value="0.40219" />
+      <inertia
+        ixx="0.00037735"
+        ixy="2.8962E-36"
+        ixz="1.8645E-36"
+        iyy="0.00037735"
+        iyz="-2.5714E-36"
+        izz="0.00063124" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/BackRightWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/BackRightWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BackRight"
+    type="continuous">
+    <origin
+      xyz="0.04517 -0.20923 0.023675"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="BackRightWheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Motors">
+    <inertial>
+      <origin
+        xyz="0.10723 -9.5814E-07 -0.068925"
+        rpy="0 0 0" />
+      <mass
+        value="0.2622" />
+      <inertia
+        ixx="0.00010852"
+        ixy="-4.3096E-13"
+        ixz="-1.1741E-09"
+        iyy="0.00010852"
+        iyz="1.031E-12"
+        izz="4.3265E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/Motors.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/Motors.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Motor"
+    type="fixed">
+    <origin
+      xyz="0.04517 -0.17053 0.023675"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Motors" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Electronics">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.01" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/Electronics.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/xerix/gazebo-learning/robot_models/training_bot/meshes/Electronics.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="ElectronicsFixed"
+    type="fixed">
+    <origin
+      xyz="0.170549999995814 -0.151499999927397 0.00647500000000003"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Electronics" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

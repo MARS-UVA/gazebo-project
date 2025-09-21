@@ -1,0 +1,285 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="arena">
+
+    <!-- A global light source -->
+
+    <!-- <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include> -->
+
+    <!-- apriltag localization board (start) -->
+    <include>
+      <uri>model://apriltag_board</uri>
+      <pose>0.05 -2 0.34 0 1.57 0</pose>
+    </include>
+
+    <!-- arena frame boundary 
+    Boundary: 6.88 m by 5 m (Kennedy Space Center Arena)
+    (See model.sdf in arena_frame folder)
+    -->
+    <include>
+      <uri>model://arena_frame_nasa</uri>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </include>
+
+<!-- This defines the generated rock field.  -->
+    <population name="obs_population1">
+      <model name="obs1">
+        <include>
+          <static>true</static>
+          <uri>model://obstacle</uri>
+        </include>
+      </model>
+      <pose>1.94 1 0 0 0 0</pose> <!-- Middle of obstacle zone -->
+      <box>
+        <size>3.5 2.7 0.1</size> <!-- Size of obstacle zone minus a small bit -->
+      </box>
+      <model_count>1</model_count>
+      <distribution>
+        <type>random</type>
+      </distribution>
+    </population>
+
+    <population name="obs_population2">
+      <model name="obs2">
+        <include>
+          <static>true</static>
+          <uri>model://obstacle</uri>
+        </include>
+      </model>
+      <pose>5.38 1 0 0 0 0</pose> <!-- Middle of excavation zone -->
+      <box>
+        <size>2.7 2.7 0.1</size> <!-- Size of excavation zone - a small bit -->
+      </box>
+      <model_count>1</model_count>
+      <distribution>
+        <type>random</type>
+      </distribution>
+    </population>
+
+      <population name="obs_population3">
+      <model name="obs3">
+        <include>
+          <static>true</static>
+          <uri>model://obstacle</uri>
+        </include>
+      </model>
+      <pose>2.94 -1.5 0 0 0 0</pose> <!-- Middle of small obstacle zone (right of starting) -->
+      <box>
+        <size>1.5 1.5 0.1</size> <!-- Size of small obstacle zone - a small bit -->
+      </box>
+      <model_count>1</model_count>
+      <distribution>
+        <type>random</type>
+      </distribution>
+    </population>
+
+    <model name="test_robot" canonical_link="chassis">
+  <pose relative_to="world">0 0 0 0 0 0</pose>
+
+  <link name="chassis">
+    <pose relative_to="__model__">1.125 0 0.1 0 0 0</pose>
+    <inertial>
+      <mass>0.0178</mass> <!-- 1.14395 * 0.25^3 -->
+      <inertia>
+        <ixx>0.001</ixx>   <!-- 0.095329 * 0.25^5 approx -->
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.001</iyy>   <!-- 0.381317 * 0.25^5 -->
+        <iyz>0</iyz>
+        <izz>0.001</izz>   <!-- 0.476646 * 0.25^5 -->
+      </inertia>
+    </inertial>
+    <visual name='visual'>
+      <geometry>
+        <box>
+          <size>0.5 0.25 0.125</size>
+        </box>
+      </geometry>
+      <material>
+        <ambient>0.0 0.0 1.0 1</ambient>
+        <diffuse>0.0 0.0 1.0 1</diffuse>
+        <specular>0.0 0.0 1.0 1</specular>
+      </material>
+    </visual>
+    <collision name='collision'>
+      <geometry>
+        <box>
+          <size>0.5 0.25 0.125</size>
+        </box>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name='left_wheel'>
+    <pose relative_to="chassis">-0.125 0.15 0 -1.5707 0 0</pose>
+    <inertial>
+      <mass>0.0156</mass> <!-- 1*0.25^3 -->
+      <inertia>
+        <ixx>0.001</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.001</iyy>
+        <iyz>0</iyz>
+        <izz>0.001</izz>
+      </inertia>
+    </inertial>
+    <visual name='visual'>
+      <geometry>
+        <cylinder>
+          <radius>0.1</radius>
+          <length>0.05</length>
+        </cylinder>
+      </geometry>
+      <material>
+        <ambient>1.0 0.0 0.0 1</ambient>
+        <diffuse>1.0 0.0 0.0 1</diffuse>
+        <specular>1.0 0.0 0.0 1</specular>
+      </material>
+    </visual>
+    <collision name='collision'>
+      <geometry>
+        <cylinder>
+          <radius>0.1</radius>
+          <length>0.05</length>
+        </cylinder>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name='right_wheel'>
+    <pose relative_to="chassis">-0.125 -0.15 0 -1.5707 0 0</pose>
+    <inertial>
+      <mass>0.0156</mass>
+      <inertia>
+        <ixx>0.001</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.001</iyy>
+        <iyz>0</iyz>
+        <izz>0.001</izz>
+      </inertia>
+    </inertial>
+    <visual name='visual'>
+      <geometry>
+        <cylinder>
+          <radius>0.1</radius>
+          <length>0.05</length>
+        </cylinder>
+      </geometry>
+      <material>
+        <ambient>1.0 0.0 0.0 1</ambient>
+        <diffuse>1.0 0.0 0.0 1</diffuse>
+        <specular>1.0 0.0 0.0 1</specular>
+      </material>
+    </visual>
+    <collision name='collision'>
+      <geometry>
+        <cylinder>
+          <radius>0.1</radius>
+          <length>0.05</length>
+        </cylinder>
+      </geometry>
+    </collision>
+  </link>
+
+  <frame name="caster_frame" attached_to='chassis'>
+    <pose>0.2 0 -0.05 0 0 0</pose>
+  </frame>
+
+  <link name='caster'>
+    <pose relative_to='caster_frame'/>
+    <inertial>
+      <mass>0.0156</mass> <!-- 1*0.25^3 -->
+      <inertia>
+        <ixx>0.001</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>0.001</iyy>
+        <iyz>0</iyz>
+        <izz>0.001</izz>
+      </inertia>
+    </inertial>
+    <visual name='visual'>
+      <geometry>
+        <sphere>
+          <radius>0.05</radius>
+        </sphere>
+      </geometry>
+      <material>
+        <ambient>0.0 1 0.0 1</ambient>
+        <diffuse>0.0 1 0.0 1</diffuse>
+        <specular>0.0 1 0.0 1</specular>
+      </material>
+    </visual>
+    <collision name='collision'>
+      <geometry>
+        <sphere>
+          <radius>0.05</radius>
+        </sphere>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wheel_joint" type="revolute">
+    <pose relative_to="left_wheel" />
+    <parent>chassis</parent>
+    <child>left_wheel</child>
+    <axis>
+      <xyz expressed_in="__model__">0 1 0</xyz>
+      <limit>
+        <lower>-1.79769e+308</lower>
+        <upper>1.79769e+308</upper>
+      </limit>
+    </axis>
+  </joint>
+
+  <joint name='right_wheel_joint' type='revolute'>
+    <pose relative_to='right_wheel'/>
+    <parent>chassis</parent>
+    <child>right_wheel</child>
+    <axis>
+      <xyz expressed_in='__model__'>0 1 0</xyz>
+      <limit>
+        <lower>-1.79769e+308</lower>
+        <upper>1.79769e+308</upper>
+      </limit>
+    </axis>
+  </joint>
+
+  <joint name="caster_wheel" type="ball">
+    <parent>chassis</parent>
+    <child>caster</child>
+  </joint>
+
+  <plugin
+    filename="gz-sim-diff-drive-system"
+    name="gz::sim::systems::DiffDrive">
+    <left_joint>left_wheel_joint</left_joint>
+    <right_joint>right_wheel_joint</right_joint>
+    <wheel_separation>0.3</wheel_separation> <!-- 1.2*0.25 -->
+    <wheel_radius>0.1</wheel_radius> <!-- 0.4*0.25 -->
+    <odom_publish_frequency>1</odom_publish_frequency>
+    <topic>cmd_vel</topic>
+  </plugin>
+</model>
+
+
+    <!--
+      INSERT OBSTACLES HERE
+    -->
+
+    <!-- Own physics settings to speed up simulation -->
+    <physics type='ode'>
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>100</real_time_update_rate>
+      <gravity>0 0 -9.81</gravity>
+    </physics>
+  </world>
+</sdf>
