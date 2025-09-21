@@ -1,3 +1,5 @@
+I took this from Purdue, the team with the best autonomy in Lunabotics
+
 # mining_arena_gazebo
 Gazebo world environments for the NASA competition
 
